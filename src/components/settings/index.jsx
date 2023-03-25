@@ -1,14 +1,6 @@
-import { useEffect, useState } from 'react'
 import './styles.css'
 
-export const Settings = ({ onDataChange }) => {
-  const [color, setColor] = useState('#cecece')
-  const [text, setText] = useState('Текст блока')
-
-  useEffect(() => {
-    onDataChange({ color, text })
-  }, [color, text, onDataChange])
-
+export const Settings = ({ color, text, onColorChange, onTextChange }) => {
   return (
     <div className="settings">
       <div className="setting__item">
@@ -17,7 +9,7 @@ export const Settings = ({ onDataChange }) => {
           type="color"
           id="block-color"
           value={color}
-          onChange={(e) => setColor(e.target.value)}
+          onChange={e => onColorChange(e.target.value)}
         />
       </div>
       <div className="setting__item">
@@ -26,7 +18,7 @@ export const Settings = ({ onDataChange }) => {
           type="text"
           id="block-text"
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={e => onTextChange(e.target.value)}
         />
       </div>
     </div>

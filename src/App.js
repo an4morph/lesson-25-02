@@ -4,17 +4,24 @@ import { Settings } from './components/settings'
 import { useCallback, useState } from 'react'
 
 function App() {
-  const [settings, setSettings] = useState({ color: '', text: '' })
+  const [color, setColor] = useState('#cecece')
+  const [text, setText] = useState('Текст')
 
-  const handleDataChange = useCallback((data) => {
-    setSettings(data)
-  }, [])
+  const handleColorChange = (color) => {
+    setColor(color)
+  }
+  const handleTextChange = (text) => {
+    setText(text)
+  }
 
   return (
     <div className="wrapper">
-      <WebPageView settings={settings} />
+      <WebPageView settings={{ color, text }} />
       <Settings
-        onDataChange={handleDataChange}
+        color={color}
+        text={text}
+        onColorChange={handleColorChange}
+        onTextChange={handleTextChange}
       />
     </div>
   )
