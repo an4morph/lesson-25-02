@@ -1,0 +1,9 @@
+.page-view {
+  width: 70%;
+  height: 100vh;
+  background-color: #cecece;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
